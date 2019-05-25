@@ -1,4 +1,4 @@
-		 Client-Server application for managing messages
+		 Client-Server application for managing messages, university project
 
 	The application has three main components:
 		1. server:
