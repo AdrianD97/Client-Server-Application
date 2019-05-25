@@ -276,9 +276,8 @@ class Server {
 		void notify_TCP_clients(const UDP_message & msg_UDP, const char *IP, const int port) {
 			// pt topic obtin lista de clienti
 			// pt fiecare client obtin daca socketul este activ => trimit catre ei
-													//	  inactiv => salvez mesajul in lista respectivului
-													//               client, daca acesta a setata SF=1
-													//				 pentru topicul primit
+			//	                                              inactiv => salvez mesajul in lista respectivului
+			//                                                    client, daca acesta a setat SF=1				 pentru topicul primit
 			
 			if (!DATA_TYPE.count((int)msg_UDP.data_type_value)) {
 				return;
