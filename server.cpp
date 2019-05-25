@@ -77,8 +77,8 @@ class Server {
 			sockUDP = socket(AF_INET, SOCK_DGRAM, 0);
 			DIE(sockUDP < 0, "socket UDP");
 
-		    // legam socket-ul UDP
-		    status = bind(sockUDP, (struct sockaddr *)&server_addr, sizeof(struct sockaddr));
+		    	// legam socket-ul UDP
+		    	status = bind(sockUDP, (struct sockaddr *)&server_addr, sizeof(struct sockaddr));
 			DIE(status < 0, "bind UDP error");
 
 			// adaug socket-ul UDP la multimea de socket-uri
