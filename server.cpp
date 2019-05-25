@@ -18,12 +18,12 @@ class Server {
 		int sockUDP; // socket-ul UDP
 		int sockTCP; // socket-ul TCP
 		socklen_t addrlen;
-    	struct sockaddr_in server_addr;
-    	struct sockaddr_in client_addr;
-    	int opt;
-    	int status;
+		struct sockaddr_in server_addr;
+		struct sockaddr_in client_addr;
+		int opt;
+		int status;
 
-    	fd_set read_fds;
+    		fd_set read_fds;
 		fd_set tmp_fds;
 		int fdmax;	
 		
@@ -93,7 +93,7 @@ class Server {
 
 			// setam optiunile socket-ului TCP
 			status = setsockopt(sockTCP, IPPROTO_TCP, TCP_NODELAY, (char*) &opt, sizeof(int));
-		    DIE(status < 0, "TCP socket options");
+		   	DIE(status < 0, "TCP socket options");
 
 			// legam socket-ul TCP
 			status = bind(sockTCP, (struct sockaddr *) &server_addr, sizeof(struct sockaddr));
@@ -144,7 +144,7 @@ class Server {
 
 							// setam optiunile socket-ului TCP nou creat
 							status = setsockopt(newsockfd, IPPROTO_TCP, TCP_NODELAY, (char*) &opt, sizeof(int));
-		    				DIE(status < 0, "TCP socket options");
+		    					DIE(status < 0, "TCP socket options");
 
 							FD_SET(newsockfd, &read_fds);
 							if (newsockfd > fdmax) { 
@@ -172,14 +172,14 @@ class Server {
 
 							notify_TCP_clients(msg_UDP, inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
 
-						    continue;
+						    	continue;
 						}
 
 						TCP_message msgTCP;
-					    memset(&msgTCP, 0, sizeof(TCP_message));
+					    	memset(&msgTCP, 0, sizeof(TCP_message));
 
-					    status = recv(i, &msgTCP, sizeof(TCP_message), 0);
-					    DIE(status < 0, "recv TCP message error");
+					    	status = recv(i, &msgTCP, sizeof(TCP_message), 0);
+					    	DIE(status < 0, "recv TCP message error");
 						
 						if (status == 0) {
 							std::cout << "Client " << map_socket_idClient.at(i) << " disconnected.\n";
