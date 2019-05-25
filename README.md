@@ -4,10 +4,10 @@
 		1. server:
 			- connects customers in the platform with the purpose of publishing and subscribing to 
 			messages.
-		    - he is the mediation component.
-		    - he can only get the exit command from the keyboard. The exit command closes the 
+		        - he is the mediation component.
+		        - he can only get the exit command from the keyboard. The exit command closes the 
 		    server and all clients are disconnected.
-		   - he is implemented in C/C++ .
+		   	- he is implemented in C/C++ .
 
 		2. TCP clients:
 			- a TCP client connects to server, can receive different keyboard commands, such:
