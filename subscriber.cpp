@@ -22,11 +22,11 @@ class Subscriber {
 		
 		int sockfd;
 		socklen_t addrlen;
-    	struct sockaddr_in server_addr;
-    	int opt;
-    	int status;
+		struct sockaddr_in server_addr;
+		int opt;
+		int status;
 
-    	fd_set read_fds;
+    		fd_set read_fds;
 		fd_set tmp_fds;
 		int fdmax;
 	
@@ -45,22 +45,22 @@ class Subscriber {
 		}
 
 		void init() {
-			// completare informatii despre adresa serverului
-			memset((char *) &server_addr, 0, sizeof(struct sockaddr_in));
-			server_addr.sin_family = AF_INET;
-		    server_addr.sin_addr.s_addr = inet_addr(serv_IP.c_str());
-		    server_addr.sin_port = htons(serv_port);
+		   // completare informatii despre adresa serverului
+	           memset((char *) &server_addr, 0, sizeof(struct sockaddr_in));
+		   server_addr.sin_family = AF_INET;
+		   server_addr.sin_addr.s_addr = inet_addr(serv_IP.c_str());
+		   server_addr.sin_port = htons(serv_port);
 
-		    FD_ZERO(&read_fds);
-		    FD_ZERO(&tmp_fds);
-		    FD_SET(STDIN_FILENO, &read_fds);
+		   FD_ZERO(&read_fds);
+		   FD_ZERO(&tmp_fds);
+		   FD_SET(STDIN_FILENO, &read_fds);
 
 		    // creeam socket-ul
 		    sockfd = socket(AF_INET, SOCK_STREAM, 0); 
 		    DIE(sockfd < 0, "create socket error");
 
 		    // setam optiunile socket-ului TCP
-			status = setsockopt(sockfd, IPPROTO_TCP, TCP_NODELAY, (char*) &opt, sizeof(int));
+		    status = setsockopt(sockfd, IPPROTO_TCP, TCP_NODELAY, (char*) &opt, sizeof(int));
 		    DIE(status < 0, "TCP socket options");
 
 		    // ne conectam la server
@@ -192,10 +192,10 @@ class Subscriber {
 			char topic_help[MAX_SIZE_TOPIC + 1];
 
 			memcpy(topic_help, msg.topic, MAX_SIZE_TOPIC);
-		    topic_help[MAX_SIZE_TOPIC] = '\0';
+		        topic_help[MAX_SIZE_TOPIC] = '\0';
 
-		    std::cout << msg.IP << ":" << msg.port << " - ";
-            std::cout << topic_help << " - " << msg.data_type;
+		        std::cout << msg.IP << ":" << msg.port << " - ";
+            	        std::cout << topic_help << " - " << msg.data_type;
 
 			if (strcmp(msg.data_type, "INT") == 0) {
 				memset(&value1, 0, sizeof(uint32_t));
