@@ -45,15 +45,15 @@ class Subscriber {
 		}
 
 		void init() {
-		   // completare informatii despre adresa serverului
-	           memset((char *) &server_addr, 0, sizeof(struct sockaddr_in));
-		   server_addr.sin_family = AF_INET;
-		   server_addr.sin_addr.s_addr = inet_addr(serv_IP.c_str());
-		   server_addr.sin_port = htons(serv_port);
+		    // completare informatii despre adresa serverului
+	            memset((char *) &server_addr, 0, sizeof(struct sockaddr_in));
+		    server_addr.sin_family = AF_INET;
+		    server_addr.sin_addr.s_addr = inet_addr(serv_IP.c_str());
+		    server_addr.sin_port = htons(serv_port);
 
-		   FD_ZERO(&read_fds);
-		   FD_ZERO(&tmp_fds);
-		   FD_SET(STDIN_FILENO, &read_fds);
+		    FD_ZERO(&read_fds);
+		    FD_ZERO(&tmp_fds);
+		    FD_SET(STDIN_FILENO, &read_fds);
 
 		    // creeam socket-ul
 		    sockfd = socket(AF_INET, SOCK_STREAM, 0); 
