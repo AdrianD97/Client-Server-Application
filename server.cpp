@@ -277,7 +277,7 @@ class Server {
 			// pt topic obtin lista de clienti
 			// pt fiecare client obtin daca socketul este activ => trimit catre ei
 			//	                                              inactiv => salvez mesajul in lista respectivului
-			//                                                    client, daca acesta a setat SF=1				 pentru topicul primit
+			//                                                    client, daca acesta a setat SF=1 pentru topicul primit
 			
 			if (!DATA_TYPE.count((int)msg_UDP.data_type_value)) {
 				return;
