@@ -4,10 +4,10 @@
 		1. server:
 			- connects customers in the platform with the purpose of publishing and subscribing to 
 			messages.
-		        - he is the mediation component.
-		        - he can only get the exit command from the keyboard. The exit command closes the 
+		        - it is the mediation component.
+		        - it can only get the exit command from the keyboard. The exit command closes the 
 		    server and all clients are disconnected.
-		   	- he is implemented in C/C++ .
+		   	- it is implemented in C/C++ .
 
 		2. TCP clients:
 			- a TCP client connects to server, can receive different keyboard commands, such:
@@ -15,12 +15,12 @@
 				* unsubscribe: announces the server that a client is no longer interested in a 
 				specific topic.
 				* exit: client disconnects
-			- he is implemented in C/C++.
+			- it is implemented in C/C++.
 
 		3. UDP clients:
 			- an UDP client publishs messages in the platform. The messages are send to 
 			the server.
-			- he is implemented in python
+			- it is implemented in python
 
 	The application include a STORE&FORWARD component of the sent messages when the clients are 
 	disconnected.
